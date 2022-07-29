@@ -67,28 +67,14 @@ public class Homework extends Application {
         primaryStage.show();
 
 
-        Stage primaryStage2 = new Stage();
-        primaryStage2.setTitle("Login form");
-        GridPane gridPane2 = new GridPane();
-        gridPane2.setAlignment(Pos.CENTER);
-        gridPane2.setHgap(10);
-        gridPane2.setVgap(10);
-        gridPane2.setStyle("-fx-background-color: #87cefa");
-        gridPane2.setPadding(new Insets(25, 25, 25, 25));
-
-        Text sceneTitle2 = new Text("Welcome to app ");
-        sceneTitle2.setFont(Font.font("Arial", FontWeight.NORMAL, 30));
-        gridPane2.add(sceneTitle2, 0, 0, 2, 1);
-
-        Scene scene2 = new Scene(gridPane2, 350, 200);
-        primaryStage2.setScene(scene2);
-
-
         btn.setOnAction(event -> {
             for (User user : users) {
                 if (userLoginField.getText().equals(user.getLogin()) && userPasswordField.getText().equals(user.getPassword())) {
-                    primaryStage2.show();
-                } else {
+                    gridPane.getChildren().removeAll(password, userName, userLoginField, userPasswordField, btn, text, sceneTitle, hbBtn);
+                    sceneTitle.setText("Welcome to app ");
+                    gridPane.add(sceneTitle, 0, 0, 2, 1);
+
+                } else if (userLoginField.getText().equals(user.getLogin()) ^ userPasswordField.getText().equals(user.getPassword())) {
                     text.setFill(Color.FIREBRICK);
                     text.setText("Incorrect login");
                 }
