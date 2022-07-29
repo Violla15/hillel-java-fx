@@ -1,4 +1,0 @@
-username=user|password=1111
-username=admin|password=pwd
-username=service|password=5555
-username=tim|password=tim123
